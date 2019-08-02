@@ -116,21 +116,21 @@ void MainWindow::on_edit_clicked(bool check)
 
 void MainWindow::on_execute_clicked(bool check)
 {
-    qnode.log(qnode.Info,std::string("[Tryb automatyczny] Wykonywanie programu w trybie automatycznym"));
+    qnode.log(qnode.Info,std::string("[Modo autom�tico] Realizaci�n del programa en modo autom�tico"));
     QNode::play_program=true;
     qnode.executeProgram();
 }
 
 void MainWindow::on_pause_clicked(bool check)
 {
-    qnode.log(qnode.Info,std::string("[Tryb automatyczny] Wykonywanie programu wstrzymane"));
+    qnode.log(qnode.Info,std::string("[Modo autom�tico] Se detiene la ejecuci�n del programa"));
     QNode::play_program=false;
     QNode::execute_movement_flag=true;
 }
 
 void MainWindow::on_stop_clicked(bool check)
 {
-    qnode.log(qnode.Info,std::string("[Tryb automatyczny] Wykonywanie programu zatrzymane"));
+    qnode.log(qnode.Info,std::string("[Modo autom�tico] Ejecuci�n del programa detenida"));
     QNode::play_program=false;
     QNode::movement_iteration=0;
     QNode::execute_movement_flag=true;
@@ -164,13 +164,13 @@ void MainWindow::on_previous_clicked(bool check)
             if(QNode::command[QNode::movement_iteration]=="GRO")
             {
                 qnode.gripperPublisher(0.011, 0.011);
-                qnode.log(QNode::Info,std::string("[Tryb ręczny] Otwarto chwytak"));
+                qnode.log(QNode::Info,std::string("[Modo manual] Pinza Abierta"));
             }
 
             if(QNode::command[QNode::movement_iteration]=="GRC")
             {
                 qnode.gripperPublisher(0, 0);
-                qnode.log(QNode::Info,std::string("[Tryb ręczny] Zamknięto chwytak"));
+                qnode.log(QNode::Info,std::string("[Modo manual] Pinza Cerrada"));
             }
 
             if(QNode::command[QNode::movement_iteration]=="LIN")
@@ -180,7 +180,7 @@ void MainWindow::on_previous_clicked(bool check)
                 std::stringstream ss;
                 ss << QNode::point[QNode::movement_iteration];
                 msg.data = ss.str();
-                qnode.log(QNode::Info,std::string("[Tryb ręczny] Wykonano ruch LIN P")+msg.data);
+                qnode.log(QNode::Info,std::string("[Modo manual] LIN P se ha realizado")+msg.data);
                 QNode::execute_movement_flag==false;
             }
 
@@ -205,14 +205,14 @@ void MainWindow::on_next_clicked(bool check)
             if(QNode::command[QNode::movement_iteration]=="GRO")
             {
                 qnode.gripperPublisher(0.011, 0.011);
-                qnode.log(QNode::Info,std::string("[Tryb ręczny] Otwarto chwytak"));
+                qnode.log(QNode::Info,std::string("[Modo manual] Pinza Abierta"));
 
             }
 
             if(QNode::command[QNode::movement_iteration]=="GRC")
             {
                 qnode.gripperPublisher(0, 0);
-                qnode.log(QNode::Info,std::string("[Tryb ręczny] Zamknięto chwytak"));
+                qnode.log(QNode::Info,std::string("[Modo manual] Pinza cerrada"));
             }
 
             if(QNode::command[QNode::movement_iteration]=="LIN")
@@ -223,7 +223,7 @@ void MainWindow::on_next_clicked(bool check)
                 std::stringstream ss;
                 ss << QNode::point[QNode::movement_iteration];
                 msg.data = ss.str();
-                qnode.log(QNode::Info,std::string("[Tryb ręczny] Wykonano ruch LIN P")+msg.data);
+                qnode.log(QNode::Info,std::string("[Modo manual] LIN P ha sido hecho")+msg.data);
                 QNode::execute_movement_flag=false;
                 QNode::movement_iteration--;
             }
@@ -241,7 +241,7 @@ void MainWindow::on_home_clicked(bool check)
 
 void MainWindow::on_run_driver_clicked(bool check)
 {
-    qnode.log(qnode.Info,std::string("Uruchamianie sterownika..."));
+    qnode.log(qnode.Info,std::string("Arrancando el controlador..."));
     system("gnome-terminal -x sh -c 'cd ~/youbot ; source devel/setup.bash ; roslaunch youbot_driver_ros_interface youbot_driver.launch'");
     ui.connect_master->setEnabled(true);
 }
@@ -303,7 +303,7 @@ void MainWindow::on_save_clicked(bool check)
         }
         file_temp.close();
     }
-    else cout << "Dostep do pliku zostal zabroniony!" << endl;
+    else cout << "El accesso al archivo esta prohibido!" << endl;
 
 
     file.open( "punkty.txt", ios::in | ios::out | ios::app);
@@ -314,20 +314,20 @@ void MainWindow::on_save_clicked(bool check)
         file.close();
     }
 
-    else cout << "Dostep do pliku zostal zabroniony!" << endl;
+    else cout << "El accesso al archivo esta prohibido!" << endl;
 
     std_msgs::String msg;
     std::stringstream ss;
     ss << point_number+1;
     msg.data = ss.str();
-    qnode.log(qnode.Info,std::string("Zapisano punkt P")+msg.data);
+    qnode.log(qnode.Info,std::string("Articulo P grabado")+msg.data);
     qnode.readPointsFromFile();
     qnode.loadPointsList();
 }
 
 void MainWindow::on_edit_list_clicked(bool check)
 {
-    system("bash -c ''cd ~/youbot ; gedit punkty.txt''");   //nie odpala terminala
+    system("bash -c ''cd ~/youbot ; gedit punkty.txt''");   //no inicia la terminal
     qnode.readPointsFromFile();
     qnode.loadPointsList();
 }
@@ -455,7 +455,7 @@ void MainWindow::on_q1_plus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::max_1, MainWindow::joint_2,MainWindow::joint_3,MainWindow::joint_4,MainWindow::joint_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 1"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 1"));
     }
 }
 
@@ -471,7 +471,7 @@ void MainWindow::on_q1_minus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::min_1, MainWindow::joint_2,MainWindow::joint_3,MainWindow::joint_4,MainWindow::joint_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 1"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 1"));
     }
 }
 
@@ -487,7 +487,7 @@ void MainWindow::on_q2_plus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::joint_1, MainWindow::max_2,MainWindow::joint_3,MainWindow::joint_4,MainWindow::joint_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 2"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 2"));
     }
 }
 
@@ -503,7 +503,7 @@ void MainWindow::on_q2_minus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::joint_1, MainWindow::min_2,MainWindow::joint_3,MainWindow::joint_4,MainWindow::joint_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 2"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 2"));
     }
 }
 
@@ -519,7 +519,7 @@ void MainWindow::on_q3_plus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::joint_1, MainWindow::joint_2,MainWindow::max_3,MainWindow::joint_4,MainWindow::joint_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 3"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 3"));
     }
 }
 
@@ -535,7 +535,7 @@ void MainWindow::on_q3_minus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::joint_1, MainWindow::joint_2,MainWindow::min_3,MainWindow::joint_4,MainWindow::joint_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 3"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 3"));
     }
 }
 
@@ -551,7 +551,7 @@ void MainWindow::on_q4_plus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::joint_1, MainWindow::joint_2,MainWindow::joint_3,MainWindow::max_4,MainWindow::joint_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 4"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 4"));
     }
 }
 
@@ -567,7 +567,7 @@ void MainWindow::on_q4_minus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::joint_1, MainWindow::joint_2,MainWindow::joint_3,MainWindow::min_4,MainWindow::joint_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 4"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 4"));
     }
 }
 
@@ -583,7 +583,7 @@ void MainWindow::on_q5_plus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::joint_1, MainWindow::joint_2,MainWindow::joint_3,MainWindow::joint_4,MainWindow::max_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 5"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 5"));
     }
 }
 
@@ -599,7 +599,7 @@ void MainWindow::on_q5_minus_clicked(bool check)
     else
     {
         qnode.jointPublisher(MainWindow::joint_1, MainWindow::joint_2,MainWindow::joint_3,MainWindow::joint_4,MainWindow::min_5);
-        qnode.log(qnode.Info,std::string("Osiągnięto skrajną pozycję złącza 5"));
+        qnode.log(qnode.Info,std::string("He alcanzado la posici�n extrema del conector 5"));
     }
 }
 
@@ -656,9 +656,9 @@ void MainWindow::closeEvent (QCloseEvent *event)
     else
     {
         QMessageBox msgBox;
-        msgBox.setText(tr("Robot nie jest w pozycji domowej!"));
-        QAbstractButton* cancelButton = msgBox.addButton(tr("Anuluj"), QMessageBox::YesRole);
-        QAbstractButton* homeButton = msgBox.addButton(tr("Pozycja domowa"), QMessageBox::NoRole);
+        msgBox.setText(tr("El robot no est� en la posici�n inicial!"));
+        QAbstractButton* cancelButton = msgBox.addButton(tr("Cancelar"), QMessageBox::YesRole);
+        QAbstractButton* homeButton = msgBox.addButton(tr("Posici�n de Inicio"), QMessageBox::NoRole);
 
         msgBox.exec();
 

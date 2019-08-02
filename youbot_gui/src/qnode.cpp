@@ -573,7 +573,7 @@ double* QNode::inverseKinematicJacobi(double xk, double yk, double zk, double Rz
 
         if(logi==true)
         {
-            log(Warn,std::string("Nie można osiągnąć zadanej pozycji."));
+            log(Warn,std::string("No se puede alcanzar la posición."));
         }
         linear_solution_exist=false;
 
@@ -612,7 +612,7 @@ double* QNode::inverseKinematicJacobi(double xk, double yk, double zk, double Rz
 
             if(logi==true)
             {
-                log(Warn,std::string("Nie można osiągnąć zadanej pozycji."));
+                log(Warn,std::string("No se puede alcanzar la posición."));
             }
             linear_solution_exist=false;
 
@@ -768,7 +768,7 @@ double* QNode::inverseKinematic(double xk, double yk, double zk, double Rz, doub
 
             if(logi==true)
             {
-                log(Warn,std::string("Nie można osiągnąć zadanej pozycji."));
+                log(Warn,std::string("No se puede alcanzar la posición."));
             }
             linear_solution_exist=false;
 
@@ -792,7 +792,7 @@ double* QNode::inverseKinematic(double xk, double yk, double zk, double Rz, doub
 
                 if(logi==true)
                 {
-                    log(Warn,std::string("Nie można osiągnąć zadanej pozycji."));
+                    log(Warn,std::string("No se puede alcanzar la posición."));
                 }
                 linear_solution_exist=false;
 
@@ -874,7 +874,7 @@ double* QNode::inverseKinematic(double xk, double yk, double zk, double Rz, doub
 
             if(logi==true)
             {
-                log(Warn,std::string("Nie można osiągnąć zadanej pozycji."));
+                log(Warn,std::string("No se puede alcanzar la posición."));
             }
             linear_solution_exist=false;
 
@@ -898,7 +898,7 @@ double* QNode::inverseKinematic(double xk, double yk, double zk, double Rz, doub
 
                 if(logi==true)
                 {
-                    log(Warn,std::string("Nie można osiągnąć zadanej pozycji."));
+                    log(Warn,std::string("No se puede alcanzar la posición."));
                 }
                 linear_solution_exist=false;
 
@@ -1135,7 +1135,7 @@ void QNode::readPointsFromFile()
         }
     }
 
-    else cout << "Brak dostępu do pliku" << endl;
+    else cout << "Sin acceso al archivo" << endl;
 }
 
 //read program from program.txt
@@ -1167,7 +1167,7 @@ void QNode::readProgramFromFile()
 
     else
     {
-        cout << "Brak dostępu do pliku" << endl; // przerwać funkcje
+        cout << "Sin acceso al archivo" << endl; // przerwać funkcje
     }
     string temp_point[row_number];
     string temp_velocity_command[row_number];
@@ -1194,7 +1194,7 @@ void QNode::readProgramFromFile()
                     else
                     {
                         state--;
-                        error << " Program nie może zaczynać się komendą GRIPPER [linia " << i+1 << "]" << endl;
+                        error << " El programa no puede comenzar con el GRIPPER [linea " << i+1 << "]" << endl;
                     }
                     //cout << "Otwieram gripper" << endl;
                 }
@@ -1208,19 +1208,19 @@ void QNode::readProgramFromFile()
                     else
                     {
                         state--;
-                        error << " Program nie może zaczynać się komendą GRIPPER [linia " << i+1 << "]" << endl;
+                        error << " El programa no puede comenzar con el GRIPPER [linea " << i+1 << "]" << endl;
                     }
                     //cout << "Zamykam gripper" << endl;
                 }
                 else
                 {
-                    error << " Brak komendy OPEN/CLOSE [linia " << i+1 << "]" << endl;
+                    error << " Sin comando ABRIR / CERRAR [linea " << i+1 << "]" << endl;
                 }
                 state+=2;
             }
             else
             {
-                error << " Nieznana komenda [linia " << i+1 << "]" << endl;
+                error << " Comando desconocido [linea " << i+1 << "]" << endl;
 
             }
         }
@@ -1261,17 +1261,17 @@ void QNode::readProgramFromFile()
                 }
                 else
                 {
-                    error << " Nie można zrealizować ruchu liniowego [linia " << i+1 << "]" << endl;
+                    error << " El movimiento de la línea no se puede realizar [linea " << i+1 << "]" << endl;
                 }
             }
             else
-                error << "Nieznana komenda [linia " << i+1 << "]" << endl;
+                error << "Comando desconocido [linea " << i+1 << "]" << endl;
 
 
             if (temp_point[i]=="P")
                 state++;
             else
-                error << " Błędnie wprowadzony punkt [linia " << i+1 << "]" << endl;
+                error << " Punto ingresado erróneamente [linea " << i+1 << "]" << endl;
             if (point[i]<=line_nmb)
             {
                 state++;
@@ -1284,14 +1284,14 @@ void QNode::readProgramFromFile()
                         state++;
                     }
                     else
-                        error << " Wprowadzono błędną wartość prędkości [linia " << i+1 << "]" << endl;
+                        error << " Se ha ingresado un valor de velocidad incorrecto [linea " << i+1 << "]" << endl;
                 }
                 else
-                    error << " Brak komendy VEL dla ruchu " << command[i] << " P" << point[i] <<"[linia " << i+1 << "]" << endl;
+                    error << " No hay comando VEL para el tráfico " << command[i] << " P" << point[i] <<"[linia " << i+1 << "]" << endl;
 
             }
             else
-                error << " Punkt P" << point[i] << " nie został zdefiniowany [linia " << i+1 << "]" << endl;
+                error << " Punto P" << point[i] << " no ha sido definido [linea " << i+1 << "]" << endl;
         }
     }
     if (state/6!=row_number)
@@ -1299,7 +1299,7 @@ void QNode::readProgramFromFile()
         cout << state << endl;
         msg1.data=error.str();
         //cout << "Błąd składni kodu" << endl; // wyprowadzić log i przerwać funkcje
-        log(Error,std::string("Błąd składni kodu:")+msg1.data);
+        log(Error,std::string("Error de sintaxis de código:")+msg1.data);
     }
     else
     {
@@ -1307,7 +1307,7 @@ void QNode::readProgramFromFile()
         {
             play_program=false;
             movement_iteration=0;
-            log(Info,std::string("[Tryb automatyczny] Wykonano program"));
+            log(Info,std::string("[Modo automático] El programa ha sido ejecutado"));
         }
 
         for (int i=0;i<row_number;i++)
@@ -1327,7 +1327,7 @@ void QNode::readProgramFromFile()
                     std::stringstream ss;
                     ss << point[QNode::movement_iteration];
                     msg.data = ss.str();
-                    log(Info,std::string("[Tryb automatyczny] Wykonano ruch PTP P")+msg.data);
+                    log(Info,std::string("[Modo automático] Se hizo movimiento PTP P")+msg.data);
 
                     QNode::jointPublisher(P[point[QNode::movement_iteration]][0],P[point[QNode::movement_iteration]][1],
                             P[point[QNode::movement_iteration]][2],P[point[QNode::movement_iteration]][3],
@@ -1341,21 +1341,21 @@ void QNode::readProgramFromFile()
                     std::stringstream ss;
                     ss << point[movement_iteration];
                     msg.data = ss.str();
-                    log(Info,std::string("[Tryb automatyczny] Wykonano ruch LIN P")+msg.data);
+                    log(Info,std::string("[Modo automático] Se hizo movimiento LIN P")+msg.data);
 
                     QNode::executeLIN(movement_iteration);
                 }
 
                 if(command[movement_iteration]=="GRO")
                 {
-                    log(Info,std::string("[Tryb automatyczny] Otworzono chwytak"));
+                    log(Info,std::string("[Modo automático] La pinza ha sido abierta"));
                     gripperPublisher(0.011, 0.011);
                     opening_gripper=true;
                 }
 
                 if(command[movement_iteration]=="GRC")
                 {
-                    log(Info,std::string("[Tryb automatyczny] Zamknięto chwytak"));
+                    log(Info,std::string("[Modo automático] La pinza estaba cerrada"));
                     gripperPublisher(0, 0);
                     closing_gripper=true;
                 }
@@ -1376,7 +1376,7 @@ void QNode::loadPointsList()
     if(line_nmb==0)
     {
         std::stringstream msg;
-        msg<< "Brak zapisanych punktów!";
+        msg<< "No hay puntos guardados!";
         list_model.setData(list_model.index(0),"    [mm]\t[mm]\t[mm]\t[rad]\t[rad]\t[rad]");
         list_model.insertRows(list_model.rowCount(),1);
         QVariant new_row(QString(msg.str().c_str()));
@@ -1431,7 +1431,7 @@ void QNode::jointPublisher(double q1, double q2,double q3,double q4,double q5)
     cords = forwardKinematic(q1, q2, q3, q4, q5);
     if(cords[2]<5)
     {
-        log(Info,std::string("Nie można wykonać - robot uderzy w stół"));
+        log(Info,std::string("No se puede hacer: el robot golpeará la mesa"));
     }
     else
     {
@@ -1513,7 +1513,7 @@ bool QNode::isGripperPositionAchived(double value)
 void QNode::moveHome()
 {
     QNode::jointPublisher(QNode::home[0],QNode::home[1],QNode::home[2],QNode::home[3],QNode::home[4]);
-    log(Info,std::string("Wykonano ruch do pozycji domowej"));
+    log(Info,std::string("El movimiento se hizo a la posición de inicio"));
 }
 
 //check home position
@@ -1565,7 +1565,7 @@ void QNode::manualPTP(int i)
     ss << point[i];
     msg.data = ss.str();
 
-    log(Info,std::string("[Tryb ręczny] Wykonano ruch PTP P")+msg.data);
+    log(Info,std::string("[Modo manual] Se hizo movimiento PTP P")+msg.data);
     QNode::isManualPTPActiv=false;
 }
 
@@ -1589,7 +1589,7 @@ void QNode::lin(double q1, double q2,double q3,double q4,double q5)
     actual_little_step_position[4]=joints[4];
 
     jointPublisher(actual_little_step_position[0], actual_little_step_position[1], actual_little_step_position[2], actual_little_step_position[3], actual_little_step_position[4]);
-    cout<<"to maly krok dla czlowieka, ale wielki dla Youbota"<<endl;
+    cout<<"Es un pequeño paso para un hombre, pero genial para Youbot"<<endl;
     executed_little_step=false;
 }
 
@@ -1749,7 +1749,7 @@ void QNode::jointSimulator(int i)
 
     for(int i=0;i<7;i++)
     {
-        armJointStateMessages.name[i] = "nazwa";
+        armJointStateMessages.name[i] = "nombre";
         armJointStateMessages.velocity[i] = 0;
         armJointStateMessages.effort[i] = 0;
     }
@@ -1869,7 +1869,7 @@ bool QNode::init()
         QNode::velocity[i]=5;
     }
 
-    QNode::log(Info,std::string("Połączono ze sterownikiem robota"));
+    QNode::log(Info,std::string("Conectado al controlador del robot"));
 
     start();
     return true;
@@ -1951,20 +1951,20 @@ void QNode::run()
 
         if (QNode::ethercat_connection_temp==true)
         {
-            log(Info,std::string("Nawiązano łączność EtherCAT"));
+            log(Info,std::string("Se estableció la comunicación EtherCAT"));
 
             QNode::ethercat_connection_temp=false;
         }
         else if (QNode::ethercat_connection_temp2==true)
         {
-            log(Error,std::string("Utracono łączność EtherCAT"));
+            log(Error,std::string("Comunicación perdida EtherCAT"));
             QNode::ethercat_connection_temp2=false;
         }
         ros::spinOnce();
         loop_rate.sleep();
         ++count;
     }
-    std::cout << "Ros shutdown, proceeding to close the gui." << std::endl;
+    std::cout << "ROS apagado, procediendo a cerrar la interfaz gráfica de usuario." << std::endl;
     Q_EMIT rosShutdown(); // used to signal the gui for a shutdown (useful to roslaunch)
 }
 
