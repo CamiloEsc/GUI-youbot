@@ -821,7 +821,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Cerrar</string>
+             <string>Cerrado</string>
             </property>
            </widget>
           </item>

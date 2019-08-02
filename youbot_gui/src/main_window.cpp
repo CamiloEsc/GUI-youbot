@@ -91,7 +91,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent )
     , qnode(argc,argv)
 {
     ui.setupUi(this);
-    ui.youbot_picture->setPixmap(QPixmap("/home/arek/youbot/src/youbot/youbot_gui/resources/images/youbot2.png"));
+    ui.youbot_picture->setPixmap(QPixmap("/home/osboxes/gui/src/GUI-youbot/youbot_gui/resources/images/youbot2.png"));
     //    ui.youbot_picture->setPixmap(QPixmap(":/images/youbot2.png"));
     qnode.ui = ui;
     QObject::connect(ui.actionAbout_Qt, SIGNAL(triggered(bool)), qApp, SLOT(aboutQt()));
