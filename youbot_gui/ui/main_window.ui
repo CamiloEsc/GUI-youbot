@@ -45,7 +45,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Program</string>
+             <string>Programa</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
