@@ -58,7 +58,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Edytuj program</string>
+             <string>Editar el Programa</string>
             </property>
            </widget>
           </item>
@@ -148,7 +148,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Logi</string>
+         <string>Robot</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -821,7 +821,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Cerca</string>
+             <string>Cerrar</string>
             </property>
            </widget>
           </item>
@@ -892,7 +892,7 @@
           <item>
            <widget class="QLabel" name="label_8">
             <property name="text">
-             <string>Krok XYZ [mm]</string>
+             <string>Apertura XYZ [mm]</string>
             </property>
            </widget>
           </item>
@@ -1056,7 +1056,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>ZÅ‚Ä…cze 1:</string>
+                 <string>Junta 1:</string>
                 </property>
                </widget>
               </item>
@@ -1101,7 +1101,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>ZÅ‚Ä…cze 2:</string>
+                 <string>Junta 2:</string>
                 </property>
                </widget>
               </item>
@@ -1146,7 +1146,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>ZÅ‚Ä…cze 3:</string>
+                 <string>Junta 3:</string>
                 </property>
                </widget>
               </item>
@@ -1191,7 +1191,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>ZÅ‚Ä…cze 4:</string>
+                 <string>Junta 4:</string>
                 </property>
                </widget>
               </item>
@@ -1236,7 +1236,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>ZÅ‚Ä…cze 5:</string>
+                 <string>Junta 5:</string>
                 </property>
                </widget>
               </item>
