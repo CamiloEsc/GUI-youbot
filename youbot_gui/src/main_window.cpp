@@ -96,7 +96,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent )
     qnode.ui = ui;
     QObject::connect(ui.actionAbout_Qt, SIGNAL(triggered(bool)), qApp, SLOT(aboutQt()));
 
-    setWindowIcon(QIcon(":/images/icon.png"));
+    setWindowIcon(QIcon("/images/icon.png"));
 
     QObject::connect(&qnode, SIGNAL(rosShutdown()), this, SLOT(close()));
     ui.points_list->setModel(qnode.listModel());

@@ -148,7 +148,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Robot</string>
+         <string>STATUS</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -171,7 +171,7 @@
         <item>
          <widget class="QPushButton" name="run_driver">
           <property name="text">
-           <string>Encender el controlador</string>
+           <string>Encender el maestro ROS</string>
           </property>
          </widget>
         </item>
@@ -181,7 +181,7 @@
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>Conectarse al controlador</string>
+           <string>Conectarse</string>
           </property>
          </widget>
         </item>
