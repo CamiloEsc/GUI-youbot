@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1266</width>
+    <width>1366</width>
     <height>704</height>
    </rect>
   </property>
@@ -952,7 +952,7 @@
           <item>
            <widget class="QRadioButton" name="radio_button_joints">
             <property name="text">
-             <string>Lista de puntos - angulos</string>
+             <string>Puntos - angulos</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -962,7 +962,7 @@
           <item>
            <widget class="QRadioButton" name="radio_button_cords">
             <property name="text">
-             <string>Lista de puntos - coordenadas</string>
+             <string>Puntos - coordenadas</string>
             </property>
            </widget>
           </item>
