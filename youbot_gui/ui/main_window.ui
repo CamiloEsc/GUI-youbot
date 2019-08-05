@@ -58,7 +58,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Editar el Programa</string>
+             <string>Editar Programa</string>
             </property>
            </widget>
           </item>
@@ -72,7 +72,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Ejecutar programa</string>
+             <string>Ejecutar</string>
             </property>
            </widget>
           </item>
@@ -82,7 +82,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Pausar el Programa</string>
+             <string>Pausar</string>
             </property>
            </widget>
           </item>
@@ -92,7 +92,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Restablecer el Programa</string>
+             <string>Restablecer</string>
             </property>
            </widget>
           </item>
@@ -919,7 +919,7 @@
           <item>
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>Entrar en los conectores [rad]</string>
+             <string>Configurar juntas [rad]</string>
             </property>
            </widget>
           </item>
