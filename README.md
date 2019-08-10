@@ -65,7 +65,7 @@ Create and initialize catkin workspace (i. e. youbot_gui):
 Clone the youBot GUI sources to /src folder:
     
     cd ~/youbot_gui/src
-    git clone https://github.com/arek-szczech/youbot.git
+    git clone https://github.com/CamiloEsc/youbot.git
 
 Add the repository folder to the ROS_PACKAGE_PATH environment variable.
 
