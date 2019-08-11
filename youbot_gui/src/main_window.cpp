@@ -111,7 +111,7 @@ MainWindow::~MainWindow() {}
 
 void MainWindow::on_edit_clicked(bool check)
 {
-    system("bash -c ''cd ~/youbot ; gedit program.txt''");
+    system("bash -c ''cd ~/GUI-youbot ; gedit program.txt''");
 }
 
 void MainWindow::on_execute_clicked(bool check)
@@ -242,7 +242,7 @@ void MainWindow::on_home_clicked(bool check)
 void MainWindow::on_run_driver_clicked(bool check)
 {
     qnode.log(qnode.Info,std::string("Arrancando el controlador..."));
-    system("gnome-terminal -x sh -c 'cd ~/youbot ; source devel/setup.bash ; roslaunch youbot_driver_ros_interface youbot_driver.launch'");
+    system("gnome-terminal -x sh -c 'cd ~/GUI-youbot ; source devel/setup.bash ; roslaunch youbot_driver_ros_interface youbot_driver.launch'");
     ui.connect_master->setEnabled(true);
 }
 
@@ -327,7 +327,7 @@ void MainWindow::on_save_clicked(bool check)
 
 void MainWindow::on_edit_list_clicked(bool check)
 {
-    system("bash -c ''cd ~/youbot ; gedit punkty.txt''");   //no inicia la terminal
+    system("bash -c ''cd ~/GUI-youbot ; gedit punkty.txt''");   //no inicia la terminal
     qnode.readPointsFromFile();
     qnode.loadPointsList();
 }
